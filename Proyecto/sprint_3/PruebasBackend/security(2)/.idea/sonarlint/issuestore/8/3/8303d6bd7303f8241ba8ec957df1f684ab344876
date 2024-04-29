@@ -1,0 +1,17 @@
+
+–
+java:S1192!"NDefine a constant instead of duplicating this literal "Authorization" 3 times.(„±Àüÿÿÿÿ8ãƒïò1J$8424f420-c7b1-4e0b-a11c-e38745cfdfcd
+‹
+java:S1192'"HDefine a constant instead of duplicating this literal "Bearer " 3 times.(öõŞÑ8ãƒïò1J$b630d8a3-17a7-4411-8131-30131c2779bf
+e
+java:S1659"""Declare "name" on a separate line.(óÒ€”8ñƒïò1J$c1e620db-4d7f-48f6-a783-66dd23f752ce
+š
+java:S3776:"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(ÚöüÃÿÿÿÿÿ8ôƒïò1J$fea427c3-18bb-42f3-8dd7-0b5974a1fa68
+e
+java:S1659=""Declare "name" on a separate line.(óÒ€”8ôƒïò1J$7110fa10-e5ed-4d59-a202-e53e773a2c55
+e
+java:S1659g""Declare "name" on a separate line.(óÒ€”8úƒïò1J$9d377623-a7b3-4613-b200-9aa5504abb0c
+i
+java:S1168l"&Return an empty array instead of null.(¥¹ï8ûƒïò1J$5ed0b933-7b51-465c-bbeb-42796efa73f0
+ƒ
+java:S1128";Remove this unused import 'com.example.security.user.User'.(ğı§‹úÿÿÿÿ8æ‘‘ò1J$6f5f06b8-5e59-46ea-81b4-da6664b3ac0e
