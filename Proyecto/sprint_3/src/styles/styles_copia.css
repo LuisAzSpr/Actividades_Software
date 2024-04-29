@@ -1,0 +1,71 @@
+
+.tablero {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .fila {
+    display: flex;
+  }
+  
+  .celda {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .blanco {
+    background-color: #f0d9b5;
+  }
+  
+  .negro {
+    background-color: #b58863;
+  }
+  
+  /* Estilos para las fichas */
+  .ficha {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  
+  .jugador1 {
+    background-color: white; /* Color para las fichas del jugador 1 */
+  }
+  
+  .jugador2 {
+    background-color: black; /* Color para las fichas del jugador 2 */
+  }
+  
+  .movimiento-valido {
+    background-color: yellow; /* Puedes cambiar el color a tu preferencia */
+  }
+
+  /* Estilos para las reinas */
+.reina {
+  font-size: 24px; /* Tamaño de la letra */
+  font-weight: bold; /* Negrita */
+  color: blue; /* Color del texto */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  align-items: center; /* lo puse recien*/
+}
+
+.reina.jugador1 {
+  background-color: white; /* Color para las reinas del jugador 1 */
+}
+
+.reina.jugador2 {
+  background-color: black; /* Color para las reinas del jugador 2 */
+}
+
+.reina-blancas {
+  background-color:  #f0d9b5; /* Color de fondo para las celdas con reinas blancas */
+}
+
+.reina-negras {
+  background-color:  #f0d9b5; /* Color de fondo para las celdas con reinas negras */
+}

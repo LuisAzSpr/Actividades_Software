@@ -1,0 +1,84 @@
+.contenedor-tablero {
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+  height: 100vh; /* Ocupa el 100% de la altura de la ventana */
+  background-color: #c1c1c1; /* Color de fondo para el contenedor */
+}
+
+.tablero {
+  display: flex;
+  flex-direction: column;
+  background-color: #795548; /* Color de fondo para el tablero */
+  padding: 20px; /* Espaciado interno para el tablero */
+  border-radius: 10px; /* Bordes redondeados para el tablero */
+}
+  
+  .fila {
+    display: flex;
+  }
+  
+  .celda {
+    width: 60px; /* Incrementa el tamaño de las celdas */
+    height: 60px; /* Incrementa el tamaño de las celdas */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000; /* Añade borde a las celdas */
+  }
+  
+  .blanco {
+    background-color: #f0d9b5;
+  }
+  
+  .negro {
+    background-color: #b58863;
+  }
+  
+  /* Estilos para las fichas */
+  .ficha {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  
+  .jugador1 {
+    background-color: white; /* Color para las fichas del jugador 1 */
+  }
+  
+  .jugador2 {
+    background-color: black; /* Color para las fichas del jugador 2 */
+  }
+  
+  .movimiento-valido {
+    background-color: yellow; /* Puedes cambiar el color a tu preferencia */
+  }
+
+  /* Estilos para las reinas */
+  .reina {
+    font-size: 24px;
+    font-weight: bold;
+    color: blue;
+    width: 50px; /* Incrementa el tamaño de las reinas */
+    height: 50px; /* Incrementa el tamaño de las reinas */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.reina.jugador1 {
+  background-color: white; /* Color para las reinas del jugador 1 */
+}
+
+.reina.jugador2 {
+  background-color: black; /* Color para las reinas del jugador 2 */
+}
+
+.reina-blancas {
+  background-color:  #f0d9b5; /* Color de fondo para las celdas con reinas blancas */
+}
+
+.reina-negras {
+  background-color:  #f0d9b5; /* Color de fondo para las celdas con reinas negras */
+}
