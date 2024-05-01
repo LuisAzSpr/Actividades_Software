@@ -200,11 +200,11 @@
 
     **DADO** un tablero en juego
 
-    **Y** es turno del jugador negro
+    **Y** es turno del un jugador
 
-    **CUANDO** se termina el turno del jugador negro
+    **CUANDO** se termina el turno del jugador
 
-    **ENTONCES** es turno del jugador blanco
+    **ENTONCES** es turno del jugador rival
 
 
 ***
