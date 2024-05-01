@@ -2,21 +2,21 @@
 
 ## Declaracion de vision
 
-Crear una aplicacion web de damas en línea, que redefina la forma en que los jugadores disfrutan y mejoran sus habilidades en este clásico juego. Queremos ser el destino preferido para los amantes de las damas de todo el mundo, ofreciendo una experiencia de juego envolvente y socialmente conectada.
+Queremos crear una aplicacion web de damas local, que redefina la forma en que los jugadores disfrutan y mejoran sus habilidades en este clásico juego. Queremos ser el destino preferido para los amantes de las damas de todo el mundo, ofreciendo una experiencia de juego envolvente.
 
 ## Declaración de misión/propósito del proyecto 
 
-Nuestro objetivo es proporcionar una aplicación web de damas accesible y emocionante, que permita a los jugadores desafiar a otros en partidas en tiempo real o jugar con un computador. Nos esforzamos por ofrecer una experiencia de juego intuitiva y satisfactoria para jugadores de todos los niveles.
+Nuestro objetivo es proporcionar una aplicación web de damas accesible y emocionante, que permita a los jugadores debatir sus partidas en la misma maquina local. Nos esforzamos por ofrecer una experiencia de juego intuitiva y satisfactoria para jugadores de los niveles basicos e intermedios.
 
 
 ## Elevator Pitch
 
-"Damas en Línea te ofrece la oportunidad de jugar damas en tiempo real con jugadores de todo el mundo o poner a prueba tus habilidades contra una maquina. Con una interfaz intuitiva y dos modos de juego, somos la plataforma definitiva para los amantes de las damas".
+"DamasSprite te ofrece la oportunidad de jugar damas locamente con otro jugador. Desafía a tus amigos, familiares o incluso a ti mismo en partidas emocionantes, todo desde la comodidad de tu computadora. Somos la plataforma definitiva para los amantes de las damas".
 
 
 ## Valor de negocio
 
-Nuestra aplicación web de damas ofrece entretenimiento a jugadores de diferentes niveles. Además, proporciona una oportunidad para la formación y la mejora de sus habilidades. También ofrece potencial para colaboraciones con educadores y organizadores de eventos relacionados con juegos de mesa.
+Nuestra aplicación web de damas ofrece entretenimiento a jugadores para los que inician en este mundo de las damas. Además, proporciona una oportunidad para la formación y la mejora de sus habilidades. También ofrece potencial para colaboraciones con educadores y organizadores de eventos relacionados con juegos de mesa.
 
 
 ## Clientes y usuarios
@@ -29,8 +29,7 @@ Nuestra aplicación web de damas ofrece entretenimiento a jugadores de diferente
 ## Métricas
 
 1. Número de usuarios registrados en la plataforma.
-2. Porcentaje de jugadores activos mensuales.
-3. Tiempo promedio de sesión de juego.
+2. Cantidad de partidas por día de cada jugador
 
 ## Hitos:
 
