@@ -11,7 +11,7 @@ Nuestro objetivo es proporcionar una aplicación web de damas accesible y emocio
 
 ## Elevator Pitch
 
-"DamasSprite te ofrece la oportunidad de jugar damas locamente con otro jugador. Desafía a tus amigos, familiares o incluso a ti mismo en partidas emocionantes, todo desde la comodidad de tu computadora. Somos la plataforma definitiva para los amantes de las damas".
+"DamasSprite te ofrece la oportunidad de jugar damas locamente con otro jugador. Desafía a tus amigos y familiares, todo desde la comodidad de tu computadora. Somos la plataforma definitiva para los amantes de las damas".
 
 
 ## Valor de negocio
