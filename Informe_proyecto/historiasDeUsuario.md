@@ -8,17 +8,19 @@
 
     AC 1.1 Registro exitoso de una cuenta de usuario
 
-    **DADO** un nombre de usuario valido que no haya sido registrado
+    **DADO** un nombre de usuario válido no registrado
 
-    **Y** una contraseña que se considere valida que coincida con la contraseña confirmada
+    **Y** una direccion de correo existente no registrado
 
-    **Y** una direccion de correo existente
+    **Y** una contraseña valida
+    
+    **Y** una contraseña de confirmacion que coincida con la  anterior
 
-    **CUANDO** creo una cuenta con este nombre de usuario
+    **CUANDO** me registro con esos campos
 
-    **ENTONCES** el sistema crea exitosamente la cuenta nueva 
+    **ENTONCES** la cuenta debe ser creada exitosamente
 
-    **Y** Se muestra un mensaje que me registre con exito.
+    **Y** el  sistema retorna un token de sesion valido
 
     -------------------------
     Criterio de aceptacion 2
@@ -26,15 +28,19 @@
 
     AC 1.2 Registro fallido de una cuenta de usuario con un nombre de usuario registrado
 
-    **DADO** un nombre de usuario valido que ya haya sido registrado
+    **DADO** un nombre de usuario valido registrado
 
-    **Y** una contraseña valida que coincida con la contraseña confirmada 
+    **Y** una direccion de correo existente no registrado
 
-    **Y** una direccion de correo existente
+    **Y** una contraseña valida
 
-    **CUANDO** creo una cuenta con ese nombre de usuario
+    **Y** una contraseña de confirmacion que coincida con la anterior
 
-    **ENTONCES** el sistema nos muestra un error con un mensaje de usuario existente
+    **CUANDO** me registro con esos campos
+
+    **ENTONCES** la cuenta no debe ser creada
+
+    **Y** el sistema muestra un de error de nombre ya en uso
 
     -------------------------
     Criterio de aceptacion 3
@@ -42,45 +48,59 @@
 
     AC 1.3 Registro fallido de una cuenta de usuario con una contraseña no valida
 
-    **DADA** una contraseña no valida 
+    **DADA** un nombre de usuario válido que no haya sido registrado
 
-    **Y** un nombre de usuario valido que no haya sido registrado
+    **Y** una contraseña no valida
 
-    **Y** una direccion de correo electronico
+    **Y** una contraseña de confirmacion que coincida con la contraseña anterior
 
-    **CUANDO** creo una cuenta con esta contraseña no valida
+    **Y** una direccion de correo existente no registrado
 
-    **ENTONCES** el sistema nos muestra un error con un mensaje de contraseña no valida.
+    **CUANDO** me registro con esos campos
+
+    **ENTONCES** la cuenta no debe ser creada
+
+    **Y** el sistema muestra un error contraseña no valida
 
     -------------------------
     Criterio de aceptacion 4
     -------------------------
 
-    AC 1.4 Registro fallido de una cuenta de usuario con contrasenas que no coinciden
+    AC 1.4 Registro fallido de una cuenta de usuario con correo electronico ya registrado
 
-    **DADA** una contraseña valida 
+    **DADA** un nombre de usuario válido que no haya sido registrado
 
-    **Y** una contraseña confirmada que no coincida con la primera
+    **Y** una contraseña valida
 
-    **CUANDO** creo una cuenta con estas contraseñas
+    **Y** una contraseña de confirmacion que coincida con la contraseña anterior
 
-    **ENTONCES** el sistema nos muestra un error con un mensaje de contrasenas no coincidentes.
+    **Y** una direccion de correo existente ya registrado
+
+    **CUANDO** me registro con esos campos
+
+    **ENTONCES** la cuenta no debe ser creada
+
+    **Y** el sistema muestra un error correo electronico ya  registrado
 
     ---------------------------
     Criterio de aceptacion 5
     ---------------------------
 
-    AC 1.5 Prevencion de creacion de cuentas maliciosas con caracteres especiales
+    AC 1.5 Registro fallido de una cuenta de usuario con contrasenas no coincidentes
     
-    **DADO** un nombre de usuario no valido(malicioso)
+    **DADO** un nombre de usuario válido que no haya sido registrado
 
-    **Y** una contrasena valida
+    **Y** una contraseña valida
 
-    **CUANDO** inicio sesion con el nombre de usuario y la contrasena 
+    **Y** una contraseña de confirmacion que no coincida con la contraseña anterior
 
-    **ENTONCES** los intentos de sesion deben fallar
+    **Y** una direccion de correo existente no registrado
+
+    **CUANDO** me registro con esos campos
+
+    **ENTONCES**  la cuenta no debe ser creada
     
-    **Y* mostrar un mensaje de error con un mensaje de nombre de usuario no valido
+    **Y* el sistema muestra un de error contraseñas diferentes
 
 ***
 
@@ -94,13 +114,13 @@
 
     **DADO** un nombre de usuario registrado 
 
-    **CUANDO** inicio sesion con este nombre de usuario 
+    **Y** una contraseña correspondiente al usuario registrado
 
-    **Y** una contrasena que coincide con la contrasena con la que se creo la cuenta
+    **CUANDO** inicio sesion con estas credenciales
 
-    **ENTONCES** el sistema inicia sesion con esa cuenta
+    **ENTONCES** un token de acceso es enviado al cliente
 
-    **Y** nos redirige a la ventana de inicio
+    **Y** accede a la página de bienvenida
 
     --------------------------
     Criterio de aceptacion 2
@@ -110,11 +130,13 @@
 
     **DADO** un nombre de usuario no registrado
 
-    **CUANDO** inicio sesion con este nombre de usuario
+    **Y** una contraseña valida
 
-    **Y** una contrasena que coincide o no con la del usuario
+    **CUANDO** se inicia sesion con esos campos
 
-    **ENTONCES** el sistema nos muestra un mensaje de usuario no registrado.
+    **ENTONCES** un token de acceso no es enviado al cliente
+
+    **Y** no tiene acceso a la página de bienvenida
 
     --------------------------
     Criterio de aceptacion 3
@@ -124,170 +146,281 @@
 
     **DADO** un nombre de usuario registrado
 
-    **Y** una contrasena que no coincide con la del usuario
+    **Y** una contraseña no asociada al nombre de usuario
 
-    **CUANDO** inicio sesion con esta contrasena
+    **CUANDO**  inicio sesion con estas credenciales
 
-    **ENTONCES** el sistema nos muestra un mensaje de contrasena incorrecta
+    **ENTONCES** un token de acceso no es enviado al cliente
 
-***
-**3. Como usuario que olvido su cuenta necesito poder recuperarla.**
-
-    -----------------------------
-    Criterio de aceptacion 1
-    -----------------------------
-
-    AC 3.1 Recuperacion de cuenta exitosa
-
-    **DADO** un correo electronico registrado
-
-    **CUANDO** doy al boton recuperar cuenta con este correo
-
-    **ENTONCES** me llega un codigo al correo electronico 
-
-    **Y** puedo restablecer mi contrasena
-    
-    **Y** el sistema me muestra contrasena reestablecida
-
-    -------------------------------
-    Criterio de aceptacion 2
-    -------------------------------
-
-    AC 3.2 Recuperacion de cuenta fallida con un correo electronico incorrecto
-
-    **DADO** un correo electronico no registrado 
-
-    **CUANDO** doy al boton recuperar cuenta con este correo
-
-    **ENTONCES** el sistema nos muestra un mensaje de correo no registrado.
+    **Y** no tiene acceso a la pagina de bienvenida
 
 ***
-**4. Como usuario de damasSprite necesito que se cierre mi sesión.**
+
+**3. Como usuario de damasSprite necesito que se cierre mi sesión.**
 
     -------------------------
     Criterio de aceptacion 1
     -------------------------
 
-    AC 4.1 Log out por acción del usuario
+    AC 3.1 Log out por acción del usuario
     
     **DADO** un usuario que ha iniciado sesión
 
     **CUANDO** un usuario hace click en log out
 
-    **ENTONCES** se cierra la sesión actual del usuario.
-
-    -------------------------
-    Criterio de aceptacion 2
-    -------------------------
-
-    AC 4.2 Log out automático debido a la inactividad
-
-    **DADO** un usuario que ha iniciado sesión.
-
-    **CUANDO** la última interacción del usuario fue hace más de 30 minutos
-
     **ENTONCES** se cierra la sesión actual del usuario
 
+    **Y** accede a la pagina de Inicio de Sesion
+
 ***
-**5. Como usuario de DamasSprite necesito visualizar los movimientos válidos cuando hago click en una pieza**
+**4. Como usuario de DamasSprite necesito visualizar los movimientos válidos cuando hago click en una pieza**
 
     ---------------------------------
     Criterio de aceptacion 1 
     ---------------------------------
 
-    AC .1 Visualizar los movimientos válidos
+    AC 4.1 Visualizar los movimientos válidos
 
-    **DADO** estoy registrado en la página de DamasSprite
+    **DADO** un tablero en juego
 
-    **Y** estoy en una partida con un tablero de juego visible
+    **Y** es turno de un jugador
 
-    **CUANDO** hago click en una pieza para seleccionarla
+    **CUANDO** se selecciona una pieza
 
-    **ENTONCES** debería de ver los movimientos válidos que puedo hacer con esa pieza
+    **ENTONCES** se muestran los movimientos validas para la casilla
 
 ***
-**6. Como usuario de damasSprite necesito poder jugar online**
+**5. Como usuario de DamasSprite necesito poder jugar con otro jugador en la misma máquina**
+
+    -------------------------
+    Criterio de aceptacion 1
+    -------------------------
     
+    AC 5.1 Los jugadores alternan turnos
+
+    **DADO** un tablero en juego
+
+    **Y** es turno del jugador negro
+
+    **CUANDO** se termina el turno del jugador negro
+
+    **ENTONCES** es turno del jugador blanco
+
+
+***
+**6. Como jugador de DamasSprite, necesito un tablero de 8x8 para un juego de damas**
+
     -------------------------
     Criterio de aceptacion 1
     -------------------------
 
-    AC 6.1 Conexion exitoso entre dos jugadores
+    AC 6.1 Tablero Inicializado
 
-    **DADO** que estoy autenticado en damasSprite
+    **DADO** se inicia una nueva partida de damas
 
-    **CUANDO** selecciono la opcion para jugar con otro jugador
+    **CUANDO** se inicializa el tablero
 
-    **ENTONCES** el sistema encuentra y establece una conexion exitosa entre dos jugadores
+    **ENTONCES** Then se colocan peones blancos en las casillas oscuras del tablero en el rango de filas 0 a 2
 
-    **Y** ambos jugadores pueden ver el tablero de juego y realizar movimientos de manera sincronizada
+    **Y** todas las casillas restantes se establecen como vacías
+
+        -------------------------
+    Criterio de aceptacion 2
+    -------------------------
+
+    AC 6.2 Referencia de casilla no válida
+
+    **DADO** un tablero
+
+    **Y** he seleccionado la opción de jugar contra la máquina
+
+    **CUANDO** una casilla es referenciada con un índice de fila o columna menor que 0 o mayor que 7
+
+    **ENTONCES** la referencia de casilla no es válida
+
+**
+**7. Como jugador de DamasSprite, necesito tener las reglas definididas para poder jugar**
+
+    -------------------------
+    Criterio de aceptacion 1
+    -------------------------
+
+    AC 7.1 Captura de peon exitoso
+
+    **DADO** que hay un tablero en juego
+
+    **Y** es turno de un jugador
+
+    **Y** que un peón del jugador en una casilla inicial es seleccionado
+
+    **Y** que en la casilla final está vacía
+
+    **Y** que hay una pieza rival en una casilla entre la casilla inicial y final
+
+    **CUANDO** el jugador mueve su peón a la casilla final
+
+    **ENTONCES** la ficha rival se retira del tablero
+
+    **Y** el peón del jugador se mueve a la nueva posición en el tablero
+
+    **Y** es turno de rival
 
     -------------------------
     Criterio de aceptacion 2
     -------------------------
 
-    AC 6.2 Conexion fallida entre dos jugadores
-    
+    AC 7.2 Captura de peon fallido por una celda ocupada
+
+    **DADO** que hay un tablero en juego
+
+    **Y** es turno del jugador correspondiente
+
+    **Y** un peón del jugador en una casilla inicial es seleccionado
+
+    **Y** que la casilla final está ocupada por una pieza rival
+
+    **Y** hay una pieza rival entre la casilla inicial y final.
+
+    **CUANDO** el jugador mueve su peón a la casilla final
+
+    **ENTONCES** no se realiza la captura.
+
+    **Y** no se realiza el movimiento.
+
+    **Y** es turno del jugador correspondiente.
+
     -------------------------
     Criterio de aceptacion 3
     -------------------------
 
-    AC 6.3 Búsqueda de Oponentes
-    
-    **DADO** que estoy en la página de damas
+    AC 7.3 Movimiento basico de dama exitoso
 
-    **Y** que hay un jugador disponible
+    **DADO** que hay un tablero en juego
 
-    **CUANDO** hago click en "buscar oponente"
+    **Y** es turno del jugador correspondiente
 
-    **ENTONCES** el sistema te empareja con un jugador disponible e inicia la partida
+    **Y** una dama del jugador en una casilla inicial es seleccionada.
 
-***
-**7. Como usuario de damasSprite necesito poder revisar mis partidas**
+    **Y** que la casilla final está vacia
 
-    -------------------------
-    Criterio de aceptacion 1
-    -------------------------
-    
-    AC 7.1 Acceso al historial del usuario
+    **Y** que la diagonal entre la casilla inicial y final está despejada.
 
-    **DADO** que estoy en la pagina de damas
+    **CUANDO** el jugador mueve su dama a la casilla final
 
-    **Y** he jugado partidas en la aplicacion
+    **ENTONCES** la dama del jugador se mueve a la nueva posición en el tablero
 
-    **CUANDO** accedo a mi perfil de usuario
-
-    **ENTONCES** debo de ver una lista de partidas anteriores con fechas y oponentes.
+    **Y** es turno del jugador rival
 
     -------------------------
-    Criterio de aceptacion 2
+    Criterio de aceptacion 4
     -------------------------
 
-    AC 7.2 Acceso denegado al historial del usuario
+    AC 7.4 Movimiento basico de dama fallido por una celda final ocupada
 
-    **DADO** que estoy en la pagina de damas
-    
-    **Y** no he jugado partidas en la aplicacion
-    
-    **CUANDO** accedo a mi perfil de usuario
-    
-    **ENTONCES** me sale un mensaje de que no tengo todavia ninguna partida jugada en la aplicacion.
+    **DADO** que hay un tablero en juego
 
-***
-**8. Como usuario de damasSprite necesito poder jugar contra una maquina**
+    **Y** es turno del jugador correspondiente
+
+    **Y** una dama del jugador en una casilla inicial es seleccionada
+
+    **Y** la casilla final está ocupada por una pieza rival
+
+    **Y** la diagonal entre la casilla inicial y final está vacía
+
+    **CUANDO** el jugador mueve su ficha a la casilla final
+
+    **ENTONCES** no se realiza el movimiento
+
+    **Y** es turno del mismo jugador.
 
     -------------------------
-    Criterio de aceptacion 1
+    Criterio de aceptacion 5
     -------------------------
 
-    AC 8.1 Iniciar una partida contra la máquina
+    AC 7.5 Movimiento básico de dama fallido por una pieza ocupando una celda intermedia del salto
 
-    **DADO** estoy en la pantalla de juego de DamasSprite
+    **DADO** que hay un tablero en juego
 
-    **Y** he seleccionado la opción de jugar contra la máquina
+    **Y** es turno del jugador correspondiente
 
-    **CUANDO** Hago clic en el botón de iniciar partida
+    **Y** una dama del jugador en una casilla inicial es seleccionada
 
-    **ENTONCES** la máquina realiza su primer movimiento y la partida comienza
+    **Y** la casilla final está vacia
 
-  
+    **Y** hay una pieza rival entre la diagonal de la casilla inicial y final
+
+    **CUANDO** el jugador mueve su ficha a la casilla final
+
+    **ENTONCES** no se realiza el movimiento
+
+    **Y** es turno del mismo jugador.
+
+    -------------------------
+    Criterio de aceptacion 6
+    -------------------------
+
+    AC 7.6 Captura de dama exitoso
+
+    **DADO** que hay un tablero en juego
+
+    **Y** es turno de un jugador
+
+    **Y** una dama del jugador en una casilla inicial es seleccionada
+
+    **Y** la casilla final está vacia
+
+    **Y** hay una pieza rival en una celda antes de llegar a la casilla final
+
+    **CUANDO** el jugador mueve su ficha a la casilla final
+
+    **ENTONCES** la pieza rival se retira del tablero
+
+    **Y** la dama del jugador se mueve a la nueva posición en el tablero
+
+    **Y** es turno del jugador rival
+
+    -------------------------
+    Criterio de aceptacion 7
+    -------------------------
+
+    AC 7.7 Captura de dama fallido por una celda final ocupada
+
+    **DADO** que hay un tablero en juego
+
+    **Y** es turno de un jugador
+
+    **Y** una dama del jugador en una casilla inicial es seleccionada
+
+    **Y** la casilla final está ocupada por una pieza rival
+
+    **Y** hay una pieza rival en una celda antes de llegar a la casilla final
+
+    **CUANDO** el jugador mueve su ficha a la casilla final
+
+    **ENTONCES** no se realiza el movimiento
+
+    **Y** es turno del mismo jugador
+
+    -------------------------
+    Criterio de aceptacion 8
+    -------------------------
+
+    AC 7.8 Coronación de un peón al llegar al otro extremo del tablero
+
+    **DADO** que hay un tablero en juego
+
+    **Y** es turno de un jugador
+
+    **Y** un peón del jugador en una casilla inicial es seleccionado
+
+    **Y** la casilla final está vacia
+
+    **Y** la casilla final está en la última fila opuesta
+
+    **CUANDO** el jugador mueve su peon a la casilla final
+
+    **ENTONCES** el peón se convierte en dama y adquiere sus funcionalidades
+
+    **Y** es turno del jugador rival
+
+**
