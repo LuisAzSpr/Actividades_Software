@@ -220,8 +220,10 @@
 
     **CUANDO** se inicializa el tablero
 
-    **ENTONCES** Then se colocan peones blancos en las casillas oscuras del tablero en el rango de filas 0 a 2
+    **ENTONCES** se colocan peones blancos en las casillas oscuras del tablero en el rango de filas 0 a 2
 
+    **Y** se colocan peones negros en las casillas oscuras del tablero en el rango de filas de 5 a 7
+    
     **Y** todas las casillas restantes se establecen como vacías
 
         -------------------------
@@ -240,6 +242,26 @@
 
 **
 **7. Como jugador de DamasSprite, necesito tener las reglas definididas para poder jugar**
+
+    -------------------------
+    Criterio de aceptacion 1
+    -------------------------
+
+    AC 7.1 Movimiento de peon exitoso
+
+    **DADO** que hay un tablero en juego
+
+    **Y** es turno de un jugador
+
+    **Y** que un peón del jugador en una casilla inicial es seleccionado
+
+    **Y** que en la casilla final está vacía
+
+    **CUANDO** el jugador mueve su peón a la casilla final
+
+    **ENTONCES** el peón del jugador se mueve a la nueva posición en el tablero
+
+    **Y** es turno de rival
 
     -------------------------
     Criterio de aceptacion 1
