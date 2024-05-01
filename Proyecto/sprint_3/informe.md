@@ -111,11 +111,6 @@ Riesgos:
         <td class="s0" dir="ltr">Then la cuenta debe ser creada exitosamente</td>
       </tr>
       <tr style="height: 20px">
-        <th id="0R6" style="height: 20px;" class="row-headers-background">
-        </th>
-        <td class="s0" dir="ltr">Y el sistema retorna un token de sesión válido</td>
-      </tr>
-      <tr style="height: 20px">
         <th id="0R7" style="height: 20px;" class="row-headers-background">
         </th>
         <td class="s2" dir="ltr" rowspan="7">Registro fallido de una cuenta de usuario con un nombre de usuario registrado</td>
