@@ -81,24 +81,24 @@ Riesgos:
         </th>
         <td class="s1" dir="ltr" rowspan="20">Registro</td>
         <td class="s2" dir="ltr" rowspan="6">Registro exitoso de una cuenta de usuario</td>
-        <td class="s0" dir="ltr">Given nombre de usuario no registrado luisito</td>
+        <td class="s0" dir="ltr">Given un nombre de usuario no registrado</td>
         <td class="s1" dir="ltr" rowspan="6">Hecho</td>
         <td class="s1" dir="ltr" rowspan="6">Luis Azaña, Pedro De la Cruz</td>
       </tr>
       <tr style="height: 20px">
         <th id="0R2" style="height: 20px;" class="row-headers-background">
         </th>
-        <td class="s0" dir="ltr">And un correo electronico no registrado luiscorreo</td>
+        <td class="s0" dir="ltr">And una dirección de correo existente no registrado</td>
       </tr>
       <tr style="height: 20px">
         <th id="0R3" style="height: 20px;" class="row-headers-background">
         </th>
-        <td class="s0" dir="ltr">And una contrasena luisito123</td>
+        <td class="s0" dir="ltr">And una contraseña válida</td>
       </tr>
       <tr style="height: 20px">
         <th id="0R4" style="height: 20px;" class="row-headers-background">
         </th>
-        <td class="s0" dir="ltr">And otra contrasena luisito123 coincidente con la anterior</td>
+        <td class="s0" dir="ltr">And una contraseña de confirmación que coincida con la anterior</td>
       </tr>
       <tr style="height: 20px">
         <th id="0R5" style="height: 20px;" class="row-headers-background">
@@ -111,27 +111,32 @@ Riesgos:
         <td class="s0" dir="ltr">Then la cuenta debe ser creada exitosamente</td>
       </tr>
       <tr style="height: 20px">
+        <th id="0R6" style="height: 20px;" class="row-headers-background">
+        </th>
+        <td class="s0" dir="ltr">Y el sistema retorna un token de sesión válido</td>
+      </tr>
+      <tr style="height: 20px">
         <th id="0R7" style="height: 20px;" class="row-headers-background">
         </th>
-        <td class="s2" dir="ltr" rowspan="7">Registro fallido con un nombre ya registrado</td>
-        <td class="s0" dir="ltr">Given nombre de usuario registrado pedrito</td>
+        <td class="s2" dir="ltr" rowspan="7">Registro fallido de una cuenta de usuario con un nombre de usuario registrado</td>
+        <td class="s0" dir="ltr">Given nombre de usuario válido registrado</td>
         <td class="s1" dir="ltr" rowspan="7">Hecho</td>
         <td class="s1" dir="ltr" rowspan="7">Luis Azaña, Pedro De la Cruz</td>
       </tr>
       <tr style="height: 20px">
         <th id="0R8" style="height: 20px;" class="row-headers-background">
         </th>
-        <td class="s0" dir="ltr">And un correo electronico no registrado pedritocorreo</td>
+        <td class="s0" dir="ltr">And una dirección de correo existente no registrado</td>
       </tr>
       <tr style="height: 20px">
         <th id="0R9" style="height: 20px;" class="row-headers-background">
         </th>
-        <td class="s0" dir="ltr">And una contrasena pedrito123</td>
+        <td class="s0" dir="ltr">And una contraseña inválida</td>
       </tr>
       <tr style="height: 20px">
         <th id="0R10" style="height: 20px;" class="row-headers-background">
         </th>
-        <td class="s0" dir="ltr">And otra contrasena pedrito123 coincidente con la anterior</td>
+        <td class="s0" dir="ltr">And una contraseña de confirmación que coincida con la anterior</td>
       </tr>
       <tr style="height: 20px">
         <th id="0R11" style="height: 20px;" class="row-headers-background">
@@ -141,12 +146,12 @@ Riesgos:
       <tr style="height: 20px">
         <th id="0R12" style="height: 20px;" class="row-headers-background">
         </th>
-        <td class="s0" dir="ltr">Then la cuenta no debe ser creada</td>
+        <td class="s0" dir="ltr">Then la cuenta no debe ser registrada</td>
       </tr>
       <tr style="height: 20px">
         <th id="0R13" style="height: 20px;" class="row-headers-background">
         </th>
-        <td class="s0" dir="ltr">And el sistema retorna usuario ya registrado</td>
+        <td class="s0" dir="ltr">And el sistema muestra un error nombre ya en uso</td>
       </tr>
       <tr style="height: 20px">
         <th id="0R14" style="height: 20px;" class="row-headers-background">
