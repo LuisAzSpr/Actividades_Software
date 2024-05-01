@@ -11,23 +11,22 @@ Nombre del proyecto: Aplicacion web de damas
 
 Declaracion de vision: Queremos crear una aplicacion web de damas local, que redefina la forma en que los jugadores disfrutan y mejoran sus habilidades en este clásico juego. Queremos ser el destino preferido para los amantes de las damas de todo el mundo, ofreciendo una experiencia de juego envolvente.
 
-Declaracion de misión: Nuestro objetivo es proporcionar una aplicación web de damas accesible y emocionante, que permita a los jugadores debatir sus partidas en la misma maquina local o jugar con un computador. Nos esforzamos por ofrecer una experiencia de juego intuitiva y satisfactoria para jugadores de los niveles basicos e intermedios.
+Declaracion de misión: Nuestro objetivo es proporcionar una aplicación web de damas accesible y emocionante, que permita a los jugadores debatir sus partidas en la misma maquina local. Nos esforzamos por ofrecer una experiencia de juego intuitiva y satisfactoria para jugadores de los niveles basicos e intermedios.
 
-Elevator Pitch: "DamasSprite te ofrece la oportunidad de jugar damas en locamente con otro jugador o poner a prueba tus habilidades contra una maquina. Con una interfaz intuitiva y dos modos de juego, somos la plataforma definitiva para los amantes de las damas".
+Elevator Pitch: "DamasSprite te ofrece la oportunidad de jugar damas locamente con otro jugador. Desafía a tus amigos, familiares o incluso a ti mismo en partidas emocionantes, todo desde la comodidad de tu computadora. Somos la plataforma definitiva para los amantes de las damas".
 
-Valor de negocio: Nuestra aplicación web de damas ofrece entretenimiento a jugadores para los que inician en este mundo de las damas o los que ya tienen un nivel intermedio. Además, proporciona una oportunidad para la formación y la mejora de sus habilidades. También ofrece potencial para colaboraciones con educadores y organizadores de eventos relacionados con juegos de mesa.
+Valor de negocio: Nuestra aplicación web de damas ofrece entretenimiento a jugadores para los que inician en este mundo de las damas. Además, proporciona una oportunidad para la formación y la mejora de sus habilidades. También ofrece potencial para colaboraciones con educadores y organizadores de eventos relacionados con juegos de mesa.
 
 Clientes y usuarios:
 
-1. Jugadores de damas de todas las edades y niveles basico e intermedio.
-2. Streamers donde quisieran reproducir sus juegos de damas en una plataforma.
+1. Jugadores de damas de todas las edades y de niveles basico e intermedio.
+2. Streamers que necesiten reproducir sus juegos de damas en una plataforma.
 3. Profesores y educadores interesados en utilizar damas como herramienta educativa en entornos virtuales.
 
 Metricas:
 
 1. Número de usuarios registrados en la plataforma.
-2. Números de partidas de cada jugador
-3. Juego de cada jugador
+2. Cantidad de partidas por día de cada jugador
 
 Hitos:
 
