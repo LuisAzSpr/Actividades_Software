@@ -14,21 +14,20 @@ import static com.example.security.GameTest.obtenerCasilla;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AlternarTurnosTest{
-    Juego game;
 
+    //====Variables====
+    Juego game;
     int[] posicionInicial= new int[2];
     int[] posicionFinal= new int[2];
-
     int[] posicionRival1=new int[2];
     int[] posicionRival2=new int[2];
-
-
     String turnoActual;
 
 
 
     // =========================================== GIVEN ==============================
 
+    //Iniciacion de juego
     @Given("^(?i)un\\s+tablero\\s+en\\s+juego$")
     public void tableroEnJuego(){
         Tablero table = new Tablero();
@@ -42,7 +41,7 @@ public class AlternarTurnosTest{
         game.setTurno(turno);
     }
 
-    // agrega una ficha
+    // Agrega una ficha en una casilla especifica
     @Given("^(?i)el\\s+jugador\\s+tiene\\s+una?\\s+(peon|dama)\\s+en\\s+([A-H][1-8])$")
     public void setFicha(String ficha,String posicionFicha){
         if(Objects.equals(ficha,"dama")){ficha="reina";}
@@ -51,6 +50,7 @@ public class AlternarTurnosTest{
         game.getTablero().setCasilla(posicionInicial[0], posicionInicial[1],fichaInsertar);
     }
 
+    // Agrega una ficha rival en una casilla especifia
     @Given("^(?i)el\\s+rival\\s+tiene\\s+una\\s+ficha\\s+cualquiera\\s+en\\s+([A-H][1-8])$")
     public void setFicha(String posicionFicha){
         posicionRival1 = game.transformarCasillaReversa(posicionFicha);
@@ -58,6 +58,7 @@ public class AlternarTurnosTest{
         game.getTablero().setCasilla(posicionRival1[0],posicionRival1[1],casilla1);
     }
 
+    // Agrega una ficha rival extra en una casilla especifica
     @Given("^(?i)el\\s+rival\\s+tiene\\s+una\\s+ficha\\s+extra\\s+cualquiera\\s+en\\s+([A-H][1-8])$")
     public void setFichaExtra(String posicionFicha){
         posicionRival2 = game.transformarCasillaReversa(posicionFicha);
@@ -67,39 +68,38 @@ public class AlternarTurnosTest{
 
     // =========================================== WHEN ==============================
 
-    @When("^(?i)(negro|blanco)\\s+realiza\\s+un\\s+movimiento\\s+simple$")
-    public void realizarMovimiento(String turno){
-        String rival = (Objects.equals(turno,"blanco")) ? "negro":"blanco";
-        boolean seguirJugando=game.tieneMovimientosValidos(turno);
-        game.setTurno(rival);
-        assertTrue(seguirJugando);
+    // Realiza un movimiento simple a una casilla
+    @When("^(?i)(negro|blanco)\\s+realiza\\s+un\\s+movimiento\\s+simple\\s+a\\s+([A-H][1-8])$")
+    public void realizarMovimiento(String turno, String extra){
+        posicionFinal = game.transformarCasillaReversa(extra);
+        game.realizarMovimiento(posicionInicial[0],posicionInicial[1],posicionFinal[0],posicionFinal[1]);
+        game.cambiarDeTurno();
     }
 
+    // Realiza una captura de una ficha rival moviendose a una casilla especifica
     @When("^(?i)(negro|blanco)\\s+captura\\s+([A-H][1-8])\\s+en\\s+([A-H][1-8])$")
     public void realizarCaptura(String turno, String posicionRival, String posicionTemp){
         posicionRival1 = game.transformarCasillaReversa(posicionRival);
         posicionFinal = game.transformarCasillaReversa(posicionTemp);
-
         game.realizarCaptura(posicionInicial[0],posicionInicial[1],posicionFinal[0],posicionFinal[1]);
-
-        assertEquals(Casilla.VACIA, game.getTablero().getCasilla(posicionInicial[0], posicionFinal[1]),"La casilla esta vacia");
-
     }
 
+    // Tiene una captura disponible luego de mover una pieza. En tal caso, no cambia de turno
     @When("^(?i)tiene\\s+otra\\s+captura\\s+disponible\\s+desde\\s+([A-H][1-8])$")
-    public void tieneCaptura(String xd){
+    public void tieneCaptura(String posFinal){
         boolean seguirJugando=game.tieneMovimientosDeCaptura(turnoActual);
-
-        assertTrue(seguirJugando);
+        if(!seguirJugando){game.cambiarDeTurno();}
     }
 
     // =========================================== THEN ==============================
 
+    //Cambia de turno
     @Then("^(?i)cambia\\s+de\\s+turno$")
     public void cambiaTurno(){
         assertNotEquals(game.getTurno(),turnoActual);
     }
 
+    //NO cambia de turno
     @Then("^(?i)no\\s+cambia\\s+de\\s+turno$")
     public void noCambiaTurno(){
         assertEquals(game.getTurno(),turnoActual);

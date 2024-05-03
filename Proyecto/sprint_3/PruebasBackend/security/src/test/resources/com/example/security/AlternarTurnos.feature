@@ -5,15 +5,15 @@ Feature: Alternar Turnos
     Given un tablero en juego
     And turno de <jugador>
     And el jugador tiene una <ficha> en <inicial>
-    When <jugador> realiza un movimiento simple
+    When <jugador> realiza un movimiento simple a <final>
     Then cambia de turno
 
     Examples:
-      |jugador|ficha|inicial|
-      |blanco|dama  |B2|
-      |blanco|peon  |B2|
-      |negro |dama  |C5|
-      |negro |peon  |C5|
+      |jugador|ficha|inicial|final|
+      |blanco|dama  |G3|E5        |
+      |blanco|peon  |B2|C3        |
+      |negro |dama  |G7|F6        |
+      |negro |peon  |B6|C5        |
 
   Scenario Outline: Capturas en cadena
     Given un tablero en juego

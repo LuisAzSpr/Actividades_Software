@@ -97,13 +97,7 @@ public class GameTest {
         if(seRealizo){juego.cambiarDeTurno();}
     }
 
-    // Realizar captura con peon o dama
-    @When("^(?i)el\\s+jugador\\s+captura\\s+con\\s+(?:peon|dama)$")
-    public void jugadorComeFicha(){
-        //La funcion no maneja bien damas
-        //juego.realizarCaptura(posicionIni[0],posicionIni[1],posicionFin[0],posicionFin[1]);
-    }
-
+    // Validar si se tiene movimientos disponibles
     @When("^(?i)(negro|blanco)\\s+no\\s+tiene\\s+movimientos\\s+disponibles$")
     public void setGanador(String turno){
         String rival = (Objects.equals(turno,"blanco")) ? "negro":"blanco";

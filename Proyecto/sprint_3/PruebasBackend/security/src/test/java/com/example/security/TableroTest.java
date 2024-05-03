@@ -107,7 +107,6 @@ public class TableroTest {
     @Test
     void quitarCasillaInvalidTest(){
 
-        //Assert
         assertThrows(IllegalArgumentException.class, ()->tablero.quitarCasilla(0,0));
         assertThrows(IllegalArgumentException.class, ()->tablero.quitarCasilla(10,-2));
     }

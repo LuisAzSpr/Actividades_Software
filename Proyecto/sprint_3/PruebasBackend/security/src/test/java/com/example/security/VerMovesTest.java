@@ -23,6 +23,9 @@ public class VerMovesTest {
     int[] posicionJugador;
     int[] posicionRival;
 
+    // =========================================== GIVEN ==============================
+
+    //Iniciacion de juego
     @Given("^(?i)el\\s+tablero\\s+en\\s+juego$")
     public void tableroJuego(){
         Tablero tablero = new Tablero();
@@ -36,7 +39,7 @@ public class VerMovesTest {
         juego.setTurno(turno);
     }
 
-    // agregar ficha inicial del jugador=turno
+    // Agregar ficha inicial del jugador=turno
     @Given("^(?i)el\\s+jugador\\s+tiene\\s+(peon|dama)\\s+en\\s+" +
             "([A-H][1-8])$")
     public void propiaFicha(String ficha,String posicion){
@@ -46,30 +49,34 @@ public class VerMovesTest {
         juego.getTablero().setCasilla(posicionJugador[0], posicionJugador[1],fichaInsertar);
     }
 
-
+    // Agregar ficha rival en una casilla especifica
     @Given("^(?i)el\\s+rival\\s+tiene\\s+una\\s+ficha\\s+en\\s+" +
             "([A-H][1-8])$")
     public void fichaRival(String posicion){
-
         posicionRival = juego.transformarCasillaReversa(posicion);
         Casilla fichaInsertar=(Objects.equals(turno1,"negro"))? Casilla.PEONBLANCO:Casilla.PEONNEGRO;
         juego.getTablero().setCasilla(posicionRival[0], posicionRival[1],fichaInsertar);
     }
 
+    // =========================================== WHEN ==============================
 
+    //El jugador tiene movientos de captura
     @When("^(?i)el\\s+jugador\\s+tiene\\s+movimientos\\s+de\\s+captura$")
     public void movCaptura(){
         boolean cap=juego.tieneMovimientosDeCaptura(turno1);
         assertTrue(cap);
     }
 
+    //El jugador no tiene movimientos de captura
     @When("^(?i)el\\s+jugador\\s+no\\s+tiene\\s+movimientos\\s+de\\s+captura$")
     public void noMovCaptura(){
         boolean cap=juego.tieneMovimientosDeCaptura(turno1);
         assertFalse(cap);
     }
 
+    // =========================================== THEN ==============================
 
+    //Retorna una matriz de movimientos de captura validos
     @Then("^se muestran los movimientos de captura")
     public void showCapture(){
         boolean cap=juego.tieneMovimientosDeCaptura(turno1);
@@ -77,6 +84,7 @@ public class VerMovesTest {
         assertNotNull(arr);
     }
 
+    //Retorna una matriz de movimientos simples validos
     @Then("^se muestran los movimientos simples")
     public void showSimple(){
         int[][] arr = juego.movimientosSimplesValidos(posicionJugador[0],posicionJugador[1]);
