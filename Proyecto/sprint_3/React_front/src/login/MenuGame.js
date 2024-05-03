@@ -49,9 +49,6 @@ let navegacion = useNavigate();
             <h3>Damas Sprite</h3>
           </div>
           <Link to="/Game" className="btn btn-dark w-100 mb-3">Jugar 1 vs 1</Link>
-          <Link to="*" className="btn btn-dark w-100 mb-3">
-            Jugar contra la Maquina
-          </Link>
           <Link className="btn btn-dark w-100 mb-3" onClick={handleLogout}>Cerrar Sesión</Link>
         </div>
       </div>

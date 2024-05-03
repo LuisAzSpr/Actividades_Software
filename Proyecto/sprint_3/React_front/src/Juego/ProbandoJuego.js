@@ -7,8 +7,7 @@ import axios from 'axios';
 const Celda = React.memo(({ rowIndex, colIndex, celda, handleClick }) => {
   return (
     <div
-      className={`celda ${(rowIndex + colIndex) % 2 !== 0 ? 'blanco' : 'negro'}  ${celda === "REINABLANCA" ? 'reina-blancas' : ''} ${celda === "REINANEGRA" ? 'reina-negras' : ''}`}
-      
+      className={`celda ${(rowIndex + colIndex) % 2 !== 0 ? 'blanco' : 'negro'} ${celda === "REINABLANCA" ? 'reina-blancas' : ''} ${celda === "REINANEGRA" ? 'reina-negras' : ''}`}
       onClick={() => handleClick(rowIndex, colIndex)}
     >
       {celda === "PEONBLANCO" && <div className="ficha jugador1"></div>}
@@ -32,7 +31,6 @@ const ProbandoJuego = () => {
   const [colI, setColI] = useState(null);
   const [filaF, setfilaF] = useState(null);
   const [colF, setColF] = useState(null);
-  const [movimientosValidos, setMovimientosValidos] = useState([]);
 
   useEffect(() => {
     const obtenerTablero = async () => {
@@ -117,7 +115,8 @@ const ProbandoJuego = () => {
       return <div>{tablero}</div>;
     }
     return (
-      <div className="tablero">
+      <div className='contenedor-tablero'>
+        <div className="tablero">
         {tablero.map((fila, rowIndex) => (
           <div key={rowIndex} className="fila">
             {fila.map((celda, colIndex) => (
@@ -131,15 +130,16 @@ const ProbandoJuego = () => {
             ))}
           </div>
         ))}
+       </div>
       </div>
+      
     );
   };
 
   return (
     <div className="juego">
-      <h2>ESTE ES UN JUEGO DE DAMAS DE PRUEBA D:</h2>
       {renderizarTablero()}
-      <p>Estado del clic: {primerClick ? 'Hizo el primer clic' : 'Hizo el segundo clic'}</p>
+      <p>Estado del primer clic: {primerClick ? 'Hizo el primer clic' : 'Hizo el segundo clic'}</p>
       <div>
         <p>punto inicial: {filaI} , {colI} </p>
         <p>punto final: {filaF} , {colF}</p>
@@ -154,4 +154,3 @@ const ProbandoJuego = () => {
 };
 
 export default ProbandoJuego;
-

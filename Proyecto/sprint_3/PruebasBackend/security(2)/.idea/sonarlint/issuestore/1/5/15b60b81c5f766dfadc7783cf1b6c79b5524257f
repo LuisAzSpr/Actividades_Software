@@ -1,15 +1,0 @@
-
-r
-java:S1066M"/Merge this if statement with the enclosing one.(‡Ç±¨8æ¬À¬ò1J$444bc284-fd64-49eb-888a-9d0ce9379c15
-w
-java:S1066S"/Merge this if statement with the enclosing one.(êÛ×Üÿÿÿÿÿ8æ¬À¬ò1J$71d0bfc6-ce35-443c-b9c9-9074c0d3788b
-^
-java:S1700"Rename field "tablero"(ë×†Åùÿÿÿÿ8æÀ³¬ò1J$ab688c1f-a3d8-4bb1-a611-87ebed890dd8
-‘	java:S116"PRename this field "FILAS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†ÛÛ8ƒÁ³¬ò1J$17aa20c7-f344-4d9c-bcb1-e3d5b788f2d1
-š	java:S116"SRename this field "COLUMNAS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ýÍ°îüÿÿÿÿ8ƒÁ³¬ò1J$94c0be7f-4220-452d-a038-92d63175deb6
-c
-java:S1170"!Make this final field static too.(†ÛÛ8…Á³¬ò1J$ffa47d6a-6a78-4e91-a5b2-61de8e8670db
-i
-java:S1170"!Make this final field static too.(ýÍ°îüÿÿÿÿ8…Á³¬ò1J$3d0ea56c-7eef-4002-818c-67a652f5107b
-q
-java:S1128".Remove this unused import 'java.util.Objects'.(¼¸õ›8£äÞ³ò1J$c8946ca9-a6e6-48ef-95a1-47861e479f69

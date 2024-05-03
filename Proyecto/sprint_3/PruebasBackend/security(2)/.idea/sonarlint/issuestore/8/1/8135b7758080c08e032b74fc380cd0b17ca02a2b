@@ -1,8 +1,0 @@
-
-	java:S1003"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­Ñ˜ÇøÿÿÿÿJ$637c4d04-0814-4b9b-8f6b-ebc9b06230df
-ƒ
-java:S1128";Remove this unused import 'com.example.security.user.User'.(ğı§‹úÿÿÿÿ8àĞíò1J$52d5a68b-2b42-4fdc-b315-8f926a89339d
-ˆ
-java:S1128"ERemove this unused import 'com.example.security.user.UserRepository'.(£ßºš8àĞíò1J$3d79a19a-4f21-4d10-a576-76ac897ca485
-›
-java:S1128"SRemove this unused import 'org.springframework.beans.factory.annotation.Autowired'.(¡¸Îùÿÿÿÿ8àĞíò1J$e07a48ad-a776-4746-8f25-79dca017ec10
