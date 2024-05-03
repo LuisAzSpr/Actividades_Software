@@ -8,19 +8,19 @@
 
     AC 1.1 Registro exitoso de una cuenta de usuario
 
-    **DADO** un nombre de usuario válido no registrado
+    Dado un nombre de usuario válido no registrado
 
-    **Y** una direccion de correo existente no registrado
+    Y una direccion de correo existente no registrado
 
-    **Y** una contraseña valida
+    Y una contraseña valida
     
-    **Y** una contraseña de confirmacion que coincida con la  anterior
+    Y una contraseña de confirmacion que coincida con la  anterior
 
-    **CUANDO** me registro con esos campos
+    Cuando me registro con esos campos
 
-    **ENTONCES** la cuenta debe ser creada exitosamente
+    Entonces la cuenta debe ser creada exitosamente
 
-    **Y** el  sistema retorna un token de sesion valido
+    Y el  sistema retorna un token de sesion valido
 
     -------------------------
     Criterio de aceptacion 2
@@ -28,19 +28,19 @@
 
     AC 1.2 Registro fallido de una cuenta de usuario con un nombre de usuario registrado
 
-    **DADO** un nombre de usuario valido registrado
+    Dado un nombre de usuario valido registrado
 
-    **Y** una direccion de correo existente no registrado
+    Y una direccion de correo existente no registrado
 
-    **Y** una contraseña valida
+    Y una contraseña valida
 
-    **Y** una contraseña de confirmacion que coincida con la anterior
+    Y una contraseña de confirmacion que coincida con la anterior
 
-    **CUANDO** me registro con esos campos
+    Cuando me registro con esos campos
 
-    **ENTONCES** la cuenta no debe ser creada
+    Entonces la cuenta no debe ser creada
 
-    **Y** el sistema muestra un de error de nombre ya en uso
+    Y el sistema muestra un de error de nombre ya en uso
 
     -------------------------
     Criterio de aceptacion 3
@@ -48,19 +48,19 @@
 
     AC 1.3 Registro fallido de una cuenta de usuario con una contraseña no valida
 
-    **DADA** un nombre de usuario válido que no haya sido registrado
+    Dado un nombre de usuario válido que no haya sido registrado
 
-    **Y** una contraseña no valida
+    Y una direccion de correo existente no registrado
 
-    **Y** una contraseña de confirmacion que coincida con la contraseña anterior
+    Y una contraseña no valida
 
-    **Y** una direccion de correo existente no registrado
+    Y una contraseña de confirmacion que coincida con la contraseña anterior
 
-    **CUANDO** me registro con esos campos
+    Cuando me registro con esos campos
 
-    **ENTONCES** la cuenta no debe ser creada
+    Entonces la cuenta no debe ser creada
 
-    **Y** el sistema muestra un error contraseña no valida
+    Y el sistema muestra un error contraseña no valida
 
     -------------------------
     Criterio de aceptacion 4
@@ -68,19 +68,19 @@
 
     AC 1.4 Registro fallido de una cuenta de usuario con correo electronico ya registrado
 
-    **DADA** un nombre de usuario válido que no haya sido registrado
+    Dado un nombre de usuario válido que no haya sido registrado
 
-    **Y** una contraseña valida
+    Y una direccion de correo existente ya registrado
 
-    **Y** una contraseña de confirmacion que coincida con la contraseña anterior
+    Y una contraseña valida
 
-    **Y** una direccion de correo existente ya registrado
+    Y una contraseña de confirmacion que coincida con la contraseña anterior
 
-    **CUANDO** me registro con esos campos
+    Cuando me registro con esos campos
 
-    **ENTONCES** la cuenta no debe ser creada
+    Entonces la cuenta no debe ser creada
 
-    **Y** el sistema muestra un error correo electronico ya  registrado
+    Y el sistema muestra un error correo electronico ya  registrado
 
     ---------------------------
     Criterio de aceptacion 5
@@ -88,19 +88,19 @@
 
     AC 1.5 Registro fallido de una cuenta de usuario con contrasenas no coincidentes
     
-    **DADO** un nombre de usuario válido que no haya sido registrado
+    Dado un nombre de usuario válido que no haya sido registrado
 
-    **Y** una contraseña valida
+    Y una direccion de correo existente no registrado
 
-    **Y** una contraseña de confirmacion que no coincida con la contraseña anterior
+    Y una contraseña valida
 
-    **Y** una direccion de correo existente no registrado
+    Y una contraseña de confirmacion que no coincida con la contraseña anterior
 
-    **CUANDO** me registro con esos campos
+    Cuando me registro con esos campos
 
-    **ENTONCES**  la cuenta no debe ser creada
+    Entonces la cuenta no debe ser creada
     
-    **Y* el sistema muestra un de error contraseñas diferentes
+    Y el sistema muestra un de error contraseñas diferentes
 
 ***
 
@@ -112,15 +112,15 @@
 
     AC 2.1 Inicio de sesion exitoso de una cuenta de usuario
 
-    **DADO** un nombre de usuario registrado 
+    Dado nombre de usuario registrado
 
-    **Y** una contraseña correspondiente al usuario registrado
+    Y una contraseña correspondiente al usuario registrado
 
-    **CUANDO** inicio sesion con estas credenciales
+    Cuando inicio sesion con estas credenciales
 
-    **ENTONCES** un token de acceso es enviado al cliente
+    Entonces un token de acceso es enviado al cliente
 
-    **Y** accede a la página de bienvenida
+    Y accede a la página de bienvenida
 
     --------------------------
     Criterio de aceptacion 2
@@ -128,9 +128,9 @@
 
     AC 2.2 Inicio de sesion fallida con un nombre de usuario inexistente
 
-    **DADO** un nombre de usuario no registrado
+    Dado nombre de usuario no registrado
 
-    **Y** una contraseña valida
+    Y una contraseña valida
 
     **CUANDO** se inicia sesion con esos campos
 
