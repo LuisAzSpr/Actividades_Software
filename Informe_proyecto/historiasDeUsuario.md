@@ -132,11 +132,11 @@
 
     Y una contraseña valida
 
-    **CUANDO** se inicia sesion con esos campos
+    Cuando se inicia sesion con esos campos
 
-    **ENTONCES** un token de acceso no es enviado al cliente
+    Entonces el usuario no es logeado
 
-    **Y** no tiene acceso a la página de bienvenida
+    Y no tiene acceso a la página de bienvenida
 
     --------------------------
     Criterio de aceptacion 3
@@ -144,15 +144,15 @@
     
     AC 2.3 Inicio de sesion fallido con una contrasena incorrecta
 
-    **DADO** un nombre de usuario registrado
+    Dado nombre de usuario registrado
 
-    **Y** una contraseña no asociada al nombre de usuario
+    Dado una contraseña no asociada al nombre de usuario
 
-    **CUANDO**  inicio sesion con estas credenciales
+    Cuando inicio sesion con estas credenciales
 
-    **ENTONCES** un token de acceso no es enviado al cliente
+    Entonces el usuario no es logeado
 
-    **Y** no tiene acceso a la pagina de bienvenida
+    Y no tiene acceso a la pagina de bienvenida
 
 ***
 
@@ -164,13 +164,13 @@
 
     AC 3.1 Log out por acción del usuario
     
-    **DADO** un usuario que ha iniciado sesión
+    Dado un usuario que ha iniciado sesion
 
-    **CUANDO** un usuario hace click en log out
+    Cuando un usuario hace logout
 
-    **ENTONCES** se cierra la sesión actual del usuario
+    Entonces el token de acceso es invalidado
 
-    **Y** accede a la pagina de Inicio de Sesion
+    Y accede a la pagina de Inicio de Sesion
 
 ***
 **4. Como usuario de DamasSprite necesito visualizar los movimientos válidos cuando hago click en una pieza**
@@ -181,13 +181,35 @@
 
     AC 4.1 Visualizar los movimientos válidos
 
-    **DADO** un tablero en juego
+    Dado un tablero en juego
 
-    **Y** es turno de un jugador
+    Y es turno de un jugador
 
-    **CUANDO** se selecciona una pieza
+    Y el jugador tiene una ficha en una casilla
 
-    **ENTONCES** se muestran los movimientos validas para la casilla
+    Y el rival tiene una ficha en una casilla de posible captura.
+
+    Cuando se selecciona la ficha
+
+    Entonces se muestran las casillas de captura para la ficha
+
+    -------------------------
+    Criterio de aceptacion 2
+    -------------------------
+    
+    AC 4.2 Visualizar los movimientos simples validos
+
+    Dado un tablero en juego
+
+    Y es turno de un jugador
+
+    Y el jugador tiene una ficha en una casilla
+
+    Y el jugador no tiene posibles capturas
+
+    Cuando se selecciona la ficha
+
+    Entonces se muestran las casillas de movimientos simples para la ficha
 
 ***
 **5. Como usuario de DamasSprite necesito poder jugar con otro jugador en la misma máquina**
@@ -196,15 +218,39 @@
     Criterio de aceptacion 1
     -------------------------
     
-    AC 5.1 Los jugadores alternan turnos
+    AC 5.1 Cambiar turno luego de un movimiento simple
 
-    **DADO** un tablero en juego
+    Dado un tablero en juego
 
-    **Y** es turno del un jugador
+    Y es turno de un jugador
 
-    **CUANDO** se termina el turno del jugador
+    Y el jugador tiene una ficha en una casilla
 
-    **ENTONCES** es turno del jugador rival
+    Y no tiene movimientos de captura 
+
+    Cuando realiza el movimiento
+    
+    Entonces el turno cambia
+
+    -------------------------
+    Criterio de aceptacion 2
+    -------------------------
+    
+    AC 5.2 Captura múltiple
+
+    Dado un tablero en juego
+
+    Y es turno de un jugador
+
+    Y el jugador tiene una ficha en una casilla
+
+    Y tiene movimientos de captura
+
+    Cuando realiza el movimiento
+
+    Y tiene movimientos de captura posteriores
+
+    Y el turno continua
 
 
 ***
@@ -216,29 +262,27 @@
 
     AC 6.1 Tablero Inicializado
 
-    **DADO** se inicia una nueva partida de damas
+    Dado se inicia una nueva partida de damas
 
-    **CUANDO** se inicializa el tablero
+    Cuando se inicializa el tablero
 
-    **ENTONCES** se colocan peones blancos en las casillas oscuras del tablero en el rango de filas 0 a 2
+    Entonces se colocan peones blancos en las casillas oscuras del tablero en el rango de filas 0 a 2
 
-    **Y** se colocan peones negros en las casillas oscuras del tablero en el rango de filas de 5 a 7
+    Y se colocan peones negros en las casillas oscuras del tablero en el rango de filas de 5 a 7
     
-    **Y** todas las casillas restantes se establecen como vacías
+    Y todas las casillas restantes se establecen como vacías
 
-        -------------------------
+    -------------------------
     Criterio de aceptacion 2
     -------------------------
 
     AC 6.2 Referencia de casilla no válida
 
-    **DADO** un tablero
+    Dado un tablero
 
-    **Y** he seleccionado la opción de jugar contra la máquina
+    Cuando una casilla es referenciada con un índice de fila o columna menor que 0 o mayor que 7
 
-    **CUANDO** una casilla es referenciada con un índice de fila o columna menor que 0 o mayor que 7
-
-    **ENTONCES** la referencia de casilla no es válida
+    Entonces la referencia de casilla no es válida
 
 **
 **7. Como jugador de DamasSprite, necesito tener las reglas definididas para poder jugar**
@@ -247,45 +291,25 @@
     Criterio de aceptacion 1
     -------------------------
 
-    AC 7.1 Movimiento de peon exitoso
-
-    **DADO** que hay un tablero en juego
-
-    **Y** es turno de un jugador
-
-    **Y** que un peón del jugador en una casilla inicial es seleccionado
-
-    **Y** que en la casilla final está vacía
-
-    **CUANDO** el jugador mueve su peón a la casilla final
-
-    **ENTONCES** el peón del jugador se mueve a la nueva posición en el tablero
-
-    **Y** es turno de rival
-
-    -------------------------
-    Criterio de aceptacion 1
-    -------------------------
-
     AC 7.1 Captura de peon exitoso
 
-    **DADO** que hay un tablero en juego
+    Dado que hay un tablero en juego
 
-    **Y** es turno de un jugador
+    Y que es turno de un jugador
 
-    **Y** que un peón del jugador en una casilla inicial es seleccionado
+    Y que un peón del jugador en una casilla inicial es seleccionado
 
-    **Y** que en la casilla final está vacía
+    Y que en la casilla final está vacía
 
-    **Y** que hay una pieza rival en una casilla entre la casilla inicial y final
+    Y que hay una pieza rival en una casilla entre la casilla inicial y final
 
-    **CUANDO** el jugador mueve su peón a la casilla final
+    Cuando el jugador mueve su peón a la casilla final
 
-    **ENTONCES** la ficha rival se retira del tablero
+    Entonces la ficha rival se retira del tablero
 
-    **Y** el peón del jugador se mueve a la nueva posición en el tablero
+    Y el peón del jugador se mueve a la nueva posición en el tablero
 
-    **Y** es turno de rival
+    Y es turno de rival
 
     -------------------------
     Criterio de aceptacion 2
@@ -293,23 +317,23 @@
 
     AC 7.2 Captura de peon fallido por una celda ocupada
 
-    **DADO** que hay un tablero en juego
+    Dado que hay un tablero en juego
 
-    **Y** es turno del jugador correspondiente
+    Y que es turno del jugador correspondiente
 
-    **Y** un peón del jugador en una casilla inicial es seleccionado
+    Y que un peón del jugador en una casilla inicial es seleccionado
 
-    **Y** que la casilla final está ocupada por una pieza rival
+    Y que la casilla final está ocupada por una pieza rival
 
-    **Y** hay una pieza rival entre la casilla inicial y final.
+    Y que hay una pieza rival en una casilla entre la casilla inicial y final
 
-    **CUANDO** el jugador mueve su peón a la casilla final
+    Cuando el jugador mueve su peón a la casilla final
 
-    **ENTONCES** no se realiza la captura.
+    Entonces no se realiza la captura
 
-    **Y** no se realiza el movimiento.
+    Y no se realiza el movimiento
 
-    **Y** es turno del jugador correspondiente.
+    Y es turno del jugador correspondiente
 
     -------------------------
     Criterio de aceptacion 3
@@ -317,21 +341,22 @@
 
     AC 7.3 Movimiento basico de dama exitoso
 
-    **DADO** que hay un tablero en juego
+    Dado que hay un tablero en juego
 
-    **Y** es turno del jugador correspondiente
+    Y que es turno del jugador correspondiente
 
-    **Y** una dama del jugador en una casilla inicial es seleccionada.
+    Y que una dama del jugador en una casilla inicial es seleccionada
 
-    **Y** que la casilla final está vacia
+    Y que la casilla final está vacía
 
-    **Y** que la diagonal entre la casilla inicial y final está despejada.
+    Y que la diagonal entre la casilla inicial y final está despejada
 
-    **CUANDO** el jugador mueve su dama a la casilla final
+    Cuando el jugador mueve su dama a la casilla final
 
-    **ENTONCES** la dama del jugador se mueve a la nueva posición en el tablero
+    Entonces la dama del jugador se mueve a la nueva posición en el tablero
 
-    **Y** es turno del jugador rival
+    Y es turno del jugador rival
+
 
     -------------------------
     Criterio de aceptacion 4
@@ -339,21 +364,21 @@
 
     AC 7.4 Movimiento basico de dama fallido por una celda final ocupada
 
-    **DADO** que hay un tablero en juego
+    Dado hay un tablero en juego
 
-    **Y** es turno del jugador correspondiente
+    Y es turno de un jugador
 
-    **Y** una dama del jugador en una casilla inicial es seleccionada
+    Y una dama del jugador en una casilla inicial es seleccionada
 
-    **Y** la casilla final está ocupada por una pieza rival
+    Y la casilla final está ocupada por una pieza rival
 
-    **Y** la diagonal entre la casilla inicial y final está vacía
+    Y la diagonal entre la casilla inicial y final está vacía
 
-    **CUANDO** el jugador mueve su ficha a la casilla final
+    Cuando el jugador mueve su ficha a la casilla final
 
-    **ENTONCES** no se realiza el movimiento
+    Entonces no se realiza el movimiento
 
-    **Y** es turno del mismo jugador.
+    Y es turno del mismo jugador
 
     -------------------------
     Criterio de aceptacion 5
@@ -361,21 +386,21 @@
 
     AC 7.5 Movimiento básico de dama fallido por una pieza ocupando una celda intermedia del salto
 
-    **DADO** que hay un tablero en juego
+    Dado hay un tablero en juego
 
-    **Y** es turno del jugador correspondiente
+    Y es turno de un jugador
 
-    **Y** una dama del jugador en una casilla inicial es seleccionada
+    Y una dama del jugador en una casilla inicial es seleccionada
 
-    **Y** la casilla final está vacia
+    Y la casilla final está vacía
 
-    **Y** hay una pieza rival entre la diagonal de la casilla inicial y final
+    Y hay una pieza rival entre la diagonal de la casilla inicial y final
 
-    **CUANDO** el jugador mueve su ficha a la casilla final
+    Cuando el jugador mueve su ficha a la casilla final
 
-    **ENTONCES** no se realiza el movimiento
+    Entonces no se realiza el movimiento
 
-    **Y** es turno del mismo jugador.
+    Y es turno del mismo jugador
 
     -------------------------
     Criterio de aceptacion 6
@@ -383,23 +408,23 @@
 
     AC 7.6 Captura de dama exitoso
 
-    **DADO** que hay un tablero en juego
+    Dado hay un tablero en juego
 
-    **Y** es turno de un jugador
+    Y es turno de un jugador
 
-    **Y** una dama del jugador en una casilla inicial es seleccionada
+    Y una dama del jugador en una casilla inicial es seleccionada
 
-    **Y** la casilla final está vacia
+    Y la casilla final está vacía
 
-    **Y** hay una pieza rival en una celda antes de llegar a la casilla final
+    Y hay una pieza rival en una celda intermedia antes de llegar a la casilla final
 
-    **CUANDO** el jugador mueve su ficha a la casilla final
+    Cuando el jugador mueve su ficha a la casilla final
 
-    **ENTONCES** la pieza rival se retira del tablero
+    Entonces la pieza rival se retira del tablero
 
-    **Y** la dama del jugador se mueve a la nueva posición en el tablero
+    Y la dama del jugador se mueve a la nueva posición en el tablero
 
-    **Y** es turno del jugador rival
+    Y es turno del jugador rival
 
     -------------------------
     Criterio de aceptacion 7
@@ -407,21 +432,21 @@
 
     AC 7.7 Captura de dama fallido por una celda final ocupada
 
-    **DADO** que hay un tablero en juego
+    Dado hay un tablero en juego
 
-    **Y** es turno de un jugador
+    Y es turno de un jugador
 
-    **Y** una dama del jugador en una casilla inicial es seleccionada
+    Y una dama del jugador en una casilla inicial es seleccionada
 
-    **Y** la casilla final está ocupada por una pieza rival
+    Y la casilla final está ocupada por una pieza rival
 
-    **Y** hay una pieza rival en una celda antes de llegar a la casilla final
+    Y hay una pieza rival en una celda intermedia antes de llegar a la casilla final
 
-    **CUANDO** el jugador mueve su ficha a la casilla final
+    Cuando el jugador mueve su ficha a la casilla final
 
-    **ENTONCES** no se realiza el movimiento
+    Entonces no se realiza el movimiento
 
-    **Y** es turno del mismo jugador
+    Y es turno del mismo jugador
 
     -------------------------
     Criterio de aceptacion 8
@@ -429,20 +454,36 @@
 
     AC 7.8 Coronación de un peón al llegar al otro extremo del tablero
 
-    **DADO** que hay un tablero en juego
+    Dado hay un tablero en juego
 
-    **Y** es turno de un jugador
+    Y es turno de un jugador
 
-    **Y** un peón del jugador en una casilla inicial es seleccionado
+    Y un peón del jugador en una casilla inicial es seleccionado
 
-    **Y** la casilla final está vacia
+    Y la casilla final está vacía
 
-    **Y** la casilla final está en la última fila opuesta
+    Y la casilla final está en la última fila opuesta
 
-    **CUANDO** el jugador mueve su peon a la casilla final
+    Cuando el jugador mueve su peón a la casilla final
 
-    **ENTONCES** el peón se convierte en dama y adquiere sus funcionalidades
+    Entonces el peón se convierte en dama y adquiere sus funcionalidades
 
-    **Y** es turno del jugador rival
+    Y es turno del jugador rival
+
+    -------------------------
+    Criterio de aceptacion 9
+    -------------------------
+
+    AC 7.9 Ganador de un juego
+
+    Dado hay un tablero en juego
+
+    Y es turno de un jugador
+
+    Cuando el jugador no tiene movimientos disponibles
+
+    Entonces el juego termina y rival es el ganador
+
+    
 
 **
